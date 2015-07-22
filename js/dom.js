@@ -64,3 +64,15 @@ averageAll.addEventListener("click",
     clearAnswerDiv();
     answerDiv.innerHTML = "$"+result;
   });
+
+var averageSelectedBtn = document.getElementById('average-selected');
+averageSelectedBtn.addEventListener('click',
+  function() {
+    var selected = [];
+    var temp = document.getElementsByTagName('select')[0].selectedOptions;
+    for (var i = 0; i < temp.length; i++) {
+      selected.push(Number(temp[i].value));
+    }
+    clearAnswerDiv();
+    answerDiv.innerHTML = "$"+average(selected);
+  });
