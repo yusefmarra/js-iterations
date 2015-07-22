@@ -121,3 +121,15 @@ if (lastNamesBtn) {
     }
   });
 }
+
+var namesWithLengthsBtn = document.getElementById("names-with-lengths");
+if (namesWithLengthsBtn) {
+  namesWithLengthsBtn.addEventListener('click',
+  function() {
+    var allNames = document.getElementsByTagName('textarea')[0].value.split('\n');
+    clearAnswerDiv();
+    for (i in allNames) {
+      answerDiv.innerHTML += allNames[i] + " " + allNames[i].length + "<br>";
+    }
+  });
+}
