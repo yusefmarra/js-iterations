@@ -16,6 +16,7 @@ function clearAnswerDiv() {
   answerDiv.innerHTML = "";
 }
 
+// var allButtons = document.getElementsByTagName('button').addEventListener('click', function(){ console.log(this);});
 
 var optionValues = [];
 var options = document.getElementsByTagName('option');
@@ -24,15 +25,18 @@ for (var i = 0; i < options.length; i++) {
 }
 
 var sumAll = document.getElementById('sum-all');
-sumAll.addEventListener("click",
+if (sumAll) {
+  sumAll.addEventListener("click",
   function(){
     var result = sum(optionValues);
     clearAnswerDiv();
     answerDiv.innerHTML = "$"+result+".00";
   });
+}
 
 var countSelectedBtn = document.getElementById('count-selected');
-countSelectedBtn.addEventListener('click',
+if (countSelectedBtn) {
+  countSelectedBtn.addEventListener('click',
   function() {
     var selected = [];
     var temp = document.getElementsByTagName('select')[0].selectedOptions;
@@ -42,10 +46,11 @@ countSelectedBtn.addEventListener('click',
     clearAnswerDiv();
     answerDiv.innerHTML = "You have selected " + countSelected(selected) + " items.";
   });
-
+}
 
 var sumSelectedBtn = document.getElementById('sum-selected');
-sumSelectedBtn.addEventListener('click',
+if (sumSelectedBtn) {
+  sumSelectedBtn.addEventListener('click',
   function() {
     var selected = [];
     var temp = document.getElementsByTagName('select')[0].selectedOptions;
@@ -55,18 +60,21 @@ sumSelectedBtn.addEventListener('click',
     clearAnswerDiv();
     answerDiv.innerHTML = "$"+sum(selected)+".00";
   });
-
+}
 
 var averageAll = document.getElementById('average-all');
-averageAll.addEventListener("click",
+if (averageAll) {
+  averageAll.addEventListener("click",
   function(){
     var result = average(optionValues);
     clearAnswerDiv();
     answerDiv.innerHTML = "$"+result;
   });
+}
 
 var averageSelectedBtn = document.getElementById('average-selected');
-averageSelectedBtn.addEventListener('click',
+if (averageSelectedBtn) {
+  averageSelectedBtn.addEventListener('click',
   function() {
     var selected = [];
     var temp = document.getElementsByTagName('select')[0].selectedOptions;
@@ -76,3 +84,16 @@ averageSelectedBtn.addEventListener('click',
     clearAnswerDiv();
     answerDiv.innerHTML = "$"+average(selected);
   });
+}
+
+var allNamesBtn = document.getElementById("all-names");
+if (allNamesBtn) {
+  allNamesBtn.addEventListener('click',
+  function() {
+    var allNames = document.getElementsByTagName('textarea')[0].value.split('\n');
+    clearAnswerDiv();
+    for (i in allNames) {
+      answerDiv.innerHTML += allNames[i] + "<br>";
+    }
+  });
+}
