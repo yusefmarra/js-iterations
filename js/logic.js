@@ -21,3 +21,6 @@ function sum(options) {
   return total;
 }
 
+function countSelected(selected) {
+  return selected.length;
+}

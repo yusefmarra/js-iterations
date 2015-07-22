@@ -26,8 +26,19 @@ for (var i = 0; i < options.length; i++) {
 var sumAll = document.getElementById('sum-all');
 sumAll.addEventListener("click",
   function(){
-  var result = sum(optionValues);
-  clearAnswerDiv();
-  answerDiv.innerHTML = "$"+result+".00";
-});
+    var result = sum(optionValues);
+    clearAnswerDiv();
+    answerDiv.innerHTML = "$"+result+".00";
+  });
 
+var countSelectedBtn = document.getElementById('count-selected');
+countSelectedBtn.addEventListener('click',
+  function() {
+    var selected = [];
+    var temp = document.getElementsByTagName('select')[0].selectedOptions;
+    for (var i = 0; i < temp.length; i++) {
+      selected.push(temp[i]);
+    }
+    clearAnswerDiv();
+    answerDiv.innerHTML = "You have selected " + countSelected(selected) + " items."
+  });
