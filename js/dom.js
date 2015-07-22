@@ -40,7 +40,7 @@ countSelectedBtn.addEventListener('click',
       selected.push(temp[i]);
     }
     clearAnswerDiv();
-    answerDiv.innerHTML = "You have selected " + countSelected(selected) + " items."
+    answerDiv.innerHTML = "You have selected " + countSelected(selected) + " items.";
   });
 
 
@@ -52,6 +52,15 @@ sumSelectedBtn.addEventListener('click',
     for (var i = 0; i < temp.length; i++) {
       selected.push(Number(temp[i].value));
     }
-    clearAnswerDiv()
+    clearAnswerDiv();
     answerDiv.innerHTML = "$"+sum(selected)+".00";
+  });
+
+
+var averageAll = document.getElementById('average-all');
+averageAll.addEventListener("click",
+  function(){
+    var result = average(optionValues);
+    clearAnswerDiv();
+    answerDiv.innerHTML = "$"+result;
   });

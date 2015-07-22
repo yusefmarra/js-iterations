@@ -24,3 +24,12 @@ function sum(options) {
 function countSelected(selected) {
   return selected.length;
 }
+
+function average(array){
+  var result = 0;
+  for (var i in array) {
+    result += array[i];
+  }
+  result = result/array.length;
+  return result;
+}
