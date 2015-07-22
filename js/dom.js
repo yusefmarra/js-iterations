@@ -16,7 +16,7 @@ function clearAnswerDiv() {
   answerDiv.innerHTML = "";
 }
 
-// var allButtons = document.getElementsByTagName('button').addEventListener('click', function(){ console.log(this);});
+// var allButtons = document.getElementsBy TagName('button').addEventListener('click', function(){ console.log(this);});
 
 var optionValues = [];
 var options = document.getElementsByTagName('option');
@@ -106,6 +106,18 @@ if (firstNamesBtn) {
     clearAnswerDiv();
     for (i in allNames) {
       answerDiv.innerHTML += allNames[i].split(' ')[0] + "<br>";
+    }
+  });
+}
+
+var lastNamesBtn = document.getElementById('last-names');
+if (lastNamesBtn) {
+  lastNamesBtn.addEventListener('click',
+  function() {
+    var allNames = document.getElementsByTagName('textarea')[0].value.split('\n');
+    clearAnswerDiv();
+    for (i in allNames) {
+      answerDiv.innerHTML += allNames[i].split(' ')[1] + "<br>";
     }
   });
 }
