@@ -97,3 +97,15 @@ if (allNamesBtn) {
     }
   });
 }
+
+var firstNamesBtn = document.getElementById('first-names');
+if (firstNamesBtn) {
+  firstNamesBtn.addEventListener('click',
+  function() {
+    var allNames = document.getElementsByTagName('textarea')[0].value.split('\n');
+    clearAnswerDiv();
+    for (i in allNames) {
+      answerDiv.innerHTML += allNames[i].split(' ')[0] + "<br>";
+    }
+  });
+}
