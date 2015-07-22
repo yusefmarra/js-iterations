@@ -42,3 +42,16 @@ countSelectedBtn.addEventListener('click',
     clearAnswerDiv();
     answerDiv.innerHTML = "You have selected " + countSelected(selected) + " items."
   });
+
+
+var sumSelectedBtn = document.getElementById('sum-selected');
+sumSelectedBtn.addEventListener('click',
+  function() {
+    var selected = [];
+    var temp = document.getElementsByTagName('select')[0].selectedOptions;
+    for (var i = 0; i < temp.length; i++) {
+      selected.push(Number(temp[i].value));
+    }
+    clearAnswerDiv()
+    answerDiv.innerHTML = "$"+sum(selected)+".00";
+  });
